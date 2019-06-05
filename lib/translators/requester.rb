@@ -7,9 +7,9 @@ module Requester
   # @param uri [String] Api Url
   # @param params [Hash] Api params
   # @return [String] Response body
-  def self.request(uri, params)
+  def self.request(uri, opts)
     uri = URI(uri)
-    uri.query = URI.encode_www_form(params)
+    uri.query = URI.encode_www_form(opts)
     response = Net::HTTP.get_response(uri)
 
     unless response.is_a?(Net::HTTPSuccess)

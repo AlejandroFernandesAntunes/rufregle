@@ -14,14 +14,14 @@ class FreeGoogleTranslator < Translator
     'https://translate.google.com/translate_a/single?'
   end
 
-  def params(text, from_lang, to_lang)
+  def params(opts)
     {
       client: 'z',
       ie: ENCODE,
       dt: 't',
-      sl: from_lang,
-      tl: to_lang,
-      q: text
+      sl: opts[:from_lang],
+      tl: opts[:to_lang],
+      q: opts[:text]
     }
   end
 

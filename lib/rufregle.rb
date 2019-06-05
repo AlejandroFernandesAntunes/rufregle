@@ -21,8 +21,7 @@ class Rufregle
   # @return [Hash] translated text and the original text from.
   #     Example:
   #     { translated: "Ola mundo", original: "Hello word" }
-  def translate(text, from, to)
-    return FAIL unless all_present?([text, from, to])
+  def translate(opts)
     translator.translate(text, from, to)
   end
 

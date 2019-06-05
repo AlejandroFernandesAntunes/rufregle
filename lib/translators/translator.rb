@@ -15,8 +15,8 @@ class Translator
   #         input "hi", :en, :pt
   #         output {translated: "ola", original: "hi"}
   #
-  def translate(text, from, to)
-    data = Requester.request(api_url, params(text, from, to))
+  def translate(opts)
+    data = Requester.request(api_url, opts)
     translation = extract(data)
 
     { translated: translation, original: text_to_translate }
